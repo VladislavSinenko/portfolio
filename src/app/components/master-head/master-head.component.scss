@@ -31,3 +31,20 @@
     font-size: 1.5rem;
   }
 }
+
+.img {
+  background-image: url(../../../assets/img/avatar.jpg);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: 310%;
+  background-position: 35% 50%;
+  background-repeat: no-repeat;
+  outline: 2px solid;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 210px;
+}
