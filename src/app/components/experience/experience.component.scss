@@ -85,6 +85,16 @@
           background: linear-gradient(360deg, white 20%, transparent 100%);
         }
       }
+
+      &.active {
+        max-height: none;
+
+        p {
+          &::before {
+            content: none;
+          }
+        }
+      }
     }
 
     img.logo {
