@@ -58,7 +58,6 @@
       position: relative;
       border-radius: 0px 0px 80px 0px;
       box-shadow: 0px 5px 10px #1abc9c;
-      max-height: 400px;
       overflow: hidden;
       width: 100%;
 
@@ -75,25 +74,6 @@
       p {
         color: #676767;
         font-size: 16px;
-
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: 0px;
-          width: 100%;
-          height: 128px;
-          background: linear-gradient(360deg, white 20%, transparent 100%);
-        }
-      }
-
-      &.active {
-        max-height: none;
-
-        p {
-          &::before {
-            content: none;
-          }
-        }
       }
     }
 

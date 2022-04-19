@@ -11,8 +11,4 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onStepClick(event: any) {
-    event.currentTarget.classList.toggle("active");
-  }
 }
