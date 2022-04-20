@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { ParallaxDirective } from './directives/paralax/parallax.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ExperienceComponent } from './components/experience/experience.componen
     ContactComponent,
     FooterComponent,
     CopyrightComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    ParallaxDirective
   ],
   imports: [
     BrowserModule
