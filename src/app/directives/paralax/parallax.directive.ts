@@ -10,11 +10,12 @@ export class ParallaxDirective {
 
   constructor(private eleRef: ElementRef) {
     this.elementStyleRef = this.eleRef.nativeElement.style;
+    this.elementStyleRef.willChange = "transform";
   }
 
   @HostListener("window:scroll")
   onWindowScroll() {
-    this.elementStyleRef.transform = "translateY(" + window.scrollY * this.parallaxRatio + "px)";
+    this.elementStyleRef.transform = "translateY(" + (this.parallaxRatio * window.scrollY) + "px)";
   }
 
 }

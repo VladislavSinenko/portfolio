@@ -1,16 +1,18 @@
-<header class="masthead bg-primary text-white text-center">
-  <div appParallax [ratio]="0.2" class="container d-flex align-items-center flex-column">
+<header appParallax [ratio]="0.4" class="masthead bg-primary text-white text-center">
+  <div class="container d-flex align-items-center flex-column">
     <!-- Masthead Avatar Image-->
-    <div appParallax [ratio]="0.1" class="img mb-5"></div>
+    <div appParallax [ratio]="-0.1" class="img mb-5"></div>
     <!-- Masthead Heading-->
-    <h1 class="masthead-heading text-uppercase mb-0">Synenko Vladyslav</h1>
-    <!-- Icon Divider-->
-    <div class="divider-custom divider-light">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-      <div class="divider-custom-line"></div>
+    <div appParallax [ratio]="-0.2">
+      <h1 class="masthead-heading text-uppercase mb-0">Synenko Vladyslav</h1>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading-->
+      <p class="masthead-subheading font-weight-light mb-0">Full-Stack Developer</p>
     </div>
-    <!-- Masthead Subheading-->
-    <p class="masthead-subheading font-weight-light mb-0">Full-Stack Developer</p>
   </div>
 </header>
