@@ -17,7 +17,10 @@
 
     .steps {
       position: relative;
-      margin-top: 60px;
+
+      @media(min-width: 992px) {
+        margin-top: 60px;
+      }
 
       &::after {
         content: "";
@@ -40,20 +43,28 @@
         position: relative;
         background-color: inherit;
         width: calc(50% + 32px);
+        z-index: 1;
 
         @media (max-width: 992px) {
           left: 0;
-          flex-direction: row-reverse;
+          flex-flow: column-reverse;
           width: auto;
-          margin-top: 40px;
+
+          &:not(:nth-child(1)) {
+            margin-top: 40px;
+          }
+
+          left: 0;
         }
 
-        &:nth-child(even) {
-          left: calc(50% - 32px);
-          flex-direction: row-reverse;
+        @media (min-width: 992px) {
+          &:nth-child(even) {
+            left: calc(50% - 32px);
+            flex-direction: row-reverse;
+          }
 
-          @media (max-width: 992px) {
-            left: 0;
+          &:nth-child(odd) {
+            flex-direction: row;
           }
         }
 
@@ -89,7 +100,7 @@
             }
           }
 
-          p {
+          .main-content {
             color: #676767;
             font-size: 16px;
             margin-bottom: 0px;
@@ -106,12 +117,44 @@
               padding: 16px;
               padding-top: 6px;
             }
+
+            u {
+              background-color: #1abc9c;
+              color: #f8f9fa;
+              padding: 0 5px;
+              text-decoration: none;
+              margin-right: 5px;
+            }
+
+            ul {
+              @media(min-width: 992px) {
+                -moz-column-count: 2;
+                -moz-column-gap: 20px;
+                -webkit-column-count: 2;
+                -webkit-column-gap: 20px;
+                column-count: 2;
+              }
+
+              column-gap: 20px;
+              list-style-type: none;
+              padding-inline-start: 0;
+
+
+              li {
+                background-color: #1abc9c;
+                color: #f8f9fa;
+                padding: 0 5px;
+                text-decoration: none;
+                margin-bottom: 5px;
+                width: fit-content;
+              }
+            }
           }
         }
 
         img.logo {
           height: 62px;
-          min-width: 62px;
+          width: 62px;
           z-index: 3;
           margin-top: 10px;
           border-radius: 50%;
