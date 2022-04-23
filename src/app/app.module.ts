@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ParallaxDirective } from './directives/paralax/parallax.directive';
+import { ParticlesDirective } from './directives/particles/particles.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ParallaxDirective } from './directives/paralax/parallax.directive';
     FooterComponent,
     CopyrightComponent,
     ExperienceComponent,
-    ParallaxDirective
+    ParallaxDirective,
+    ParticlesDirective
   ],
   imports: [
     BrowserModule
