@@ -1,10 +1,10 @@
 export const ParticlesConfig = {
   "particles": {
     "number": {
-      "value": 40,
+      "value": 30,
       "density": {
         "enable": false,
-        "value_area": 800
+        "value_area": 500
       }
     },
     "color": {
@@ -47,21 +47,21 @@ export const ParticlesConfig = {
     },
     "line_linked": {
       "enable": true,
-      "distance": 150,
+      "distance": 200,
       "color": "#ffffff",
       "opacity": 1,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 6,
+      "speed": 4,
       "direction": "none",
-      "random": true,
+      "random": false,
       "straight": false,
       "out_mode": "bounce",
       "bounce": false,
       "attract": {
-        "enable": true,
+        "enable": false,
         "rotateX": 600,
         "rotateY": 1200
       }
@@ -78,7 +78,7 @@ export const ParticlesConfig = {
         "enable": false,
         "mode": "repulse"
       },
-      "resize": true
+      "resize": false
     },
     "modes": {
       "grab": {

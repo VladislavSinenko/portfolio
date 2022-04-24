@@ -9,18 +9,29 @@ declare let particlesJS: any;
 export class ParticlesDirective {
 
   constructor(private eleRef: ElementRef) {
-    this.initParticles(eleRef.nativeElement);
+    this.observe(eleRef.nativeElement);
   }
 
-  initParticles(element: HTMLElement) {
-    let id = element.id;
+  observe(element: any) {
+    var observer = new IntersectionObserver(this.initParticles);
+    observer.observe(element);
+  }
 
-    if (!id) {
-      let message = "Element don`t have an Id";
-      console.error(message);
-      throw message;
+  initParticles(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    let element = enteries[0];
+    if (element.isIntersecting) {
+      let id = element.target.id;
+
+      if (!id) {
+        let message = "Element don`t have an Id";
+        console.error(message);
+        throw message;
+      }
+
+      particlesJS(id, ParticlesConfig);
     }
-
-    particlesJS(id, ParticlesConfig, function () { });
+    else {
+      element.target.children[0]?.remove();
+    }
   }
 }
