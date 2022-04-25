@@ -7,6 +7,7 @@ declare let particlesJS: any;
   selector: '[appParticles]'
 })
 export class ParticlesDirective {
+  private pJSDom: any = (window as any).pJSDom;
 
   constructor(private eleRef: ElementRef) {
     var particlesContainer = this.initParticles(eleRef.nativeElement);
@@ -14,15 +15,11 @@ export class ParticlesDirective {
   }
 
   private initParticles(particlesParrent: HTMLElement): Element {
-    let id = particlesParrent.id;
-
-    if (!id) {
-      let message = "Particles container don`t have an Id";
-      console.error(message);
-      throw message;
+    if (particlesParrent.id.length == 0) {
+      particlesParrent.id = "particles-js-container-" + this.pJSDom.length;
     }
 
-    particlesJS(id, ParticlesConfig);
+    particlesJS(particlesParrent.id, ParticlesConfig);
 
     return particlesParrent.children[0];
   }
@@ -44,6 +41,6 @@ export class ParticlesDirective {
   }
 
   private getParticlesObj(element: Element) {
-    return (window as any).pJSDom.find((e: any) => e.pJS.canvas.el == element).pJS;
+    return this.pJSDom.find((e: any) => e.pJS.canvas.el == element).pJS;
   }
 }
