@@ -9,29 +9,41 @@ declare let particlesJS: any;
 export class ParticlesDirective {
 
   constructor(private eleRef: ElementRef) {
-    this.observe(eleRef.nativeElement);
+    var particlesContainer = this.initParticles(eleRef.nativeElement);
+    this.observe(particlesContainer);
   }
 
-  observe(element: any) {
-    var observer = new IntersectionObserver(this.initParticles);
+  private initParticles(particlesParrent: HTMLElement): Element {
+    let id = particlesParrent.id;
+
+    if (!id) {
+      let message = "Particles container don`t have an Id";
+      console.error(message);
+      throw message;
+    }
+
+    particlesJS(id, ParticlesConfig);
+
+    return particlesParrent.children[0];
+  }
+
+  private observe(element: any) {
+    var observer = new IntersectionObserver(this.setInteraction.bind(this));
     observer.observe(element);
   }
 
-  initParticles(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    let element = enteries[0];
-    if (element.isIntersecting) {
-      let id = element.target.id;
-
-      if (!id) {
-        let message = "Element don`t have an Id";
-        console.error(message);
-        throw message;
-      }
-
-      particlesJS(id, ParticlesConfig);
+  private setInteraction(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    var particles = this.getParticlesObj(enteries[0].target);
+    if (enteries[0].isIntersecting) {
+      if (particles.particles.array.length == 0)
+        particles.fn.particlesCreate();
     }
     else {
-      element.target.children[0]?.remove();
+      particles.fn.particlesEmpty();
     }
+  }
+
+  private getParticlesObj(element: Element) {
+    return (window as any).pJSDom.find((e: any) => e.pJS.canvas.el == element).pJS;
   }
 }
