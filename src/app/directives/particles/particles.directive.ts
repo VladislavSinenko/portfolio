@@ -1,6 +1,8 @@
 import { Directive, ElementRef } from '@angular/core';
 import { ParticlesConfig } from 'src/particles-config';
+import { ParticlesObj } from '../../models/ParticlesObj';
 import { IntersectionService } from '../../services/intersection/intersection.service';
+import { ParticlesService } from '../../services/particles/particles.service';
 
 declare let particlesJS: any;
 
@@ -8,38 +10,20 @@ declare let particlesJS: any;
   selector: '[appParticles]'
 })
 export class ParticlesDirective {
-  private pJSDom: any = (window as any).pJSDom;
-  private particles: any;
+  private particles: ParticlesObj;
   private observer: IntersectionObserver;
 
-  constructor(private eleRef: ElementRef, private intersectionService: IntersectionService) {
-    var particlesContainer = this.initParticles(eleRef.nativeElement);
-    this.particles = this.getParticlesObj(particlesContainer);
+  constructor(private elementRef: ElementRef, private particlesService: ParticlesService, private intersectionService: IntersectionService) {
+    this.particles = this.particlesService.insertParticles(elementRef.nativeElement, ParticlesConfig);
     this.particles.fn.particlesEmpty();
-    this.observer = this.intersectionService.registerObserver(this.setInteraction.bind(this));
-    this.observer.observe(particlesContainer);
+    this.observer = this.intersectionService.registerObserver(this.observerCallback.bind(this));
+    this.observer.observe(this.particles.canvas.el);
   }
 
-  private initParticles(particlesParrent: HTMLElement): Element {
-    if (particlesParrent.id.length == 0) {
-      particlesParrent.id = "particles-js-container-" + this.pJSDom.length;
-    }
-
-    particlesJS(particlesParrent.id, ParticlesConfig);
-
-    return particlesParrent.children[0];
-  }
-
-  private setInteraction(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    if (enteries[0].isIntersecting) {
+  private observerCallback(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    if (enteries[0].isIntersecting)
       this.particles.fn.particlesCreate();
-    }
-    else {
+    else
       this.particles.fn.particlesEmpty();
-    }
-  }
-
-  private getParticlesObj(element: Element) {
-    return this.pJSDom.find((e: any) => e.pJS.canvas.el == element).pJS;
   }
 }

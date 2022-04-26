@@ -12,7 +12,6 @@ export class IntersectionService implements OnDestroy {
   registerObserver(callback: IntersectionObserverCallback, options?: IntersectionObserverInit): IntersectionObserver {
     var observer = new IntersectionObserver(callback, options);
     this.observers.push(observer);
-
     return observer;
   }
 
