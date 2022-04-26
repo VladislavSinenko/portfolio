@@ -1,5 +1,6 @@
 import { Directive, ElementRef } from '@angular/core';
 import { ParticlesConfig } from 'src/particles-config';
+import { IntersectionService } from '../../services/intersection/intersection.service';
 
 declare let particlesJS: any;
 
@@ -8,10 +9,15 @@ declare let particlesJS: any;
 })
 export class ParticlesDirective {
   private pJSDom: any = (window as any).pJSDom;
+  private particles: any;
+  private observer: IntersectionObserver;
 
-  constructor(private eleRef: ElementRef) {
+  constructor(private eleRef: ElementRef, private intersectionService: IntersectionService) {
     var particlesContainer = this.initParticles(eleRef.nativeElement);
-    this.observe(particlesContainer);
+    this.particles = this.getParticlesObj(particlesContainer);
+    this.particles.fn.particlesEmpty();
+    this.observer = this.intersectionService.registerObserver(this.setInteraction.bind(this));
+    this.observer.observe(particlesContainer);
   }
 
   private initParticles(particlesParrent: HTMLElement): Element {
@@ -24,19 +30,12 @@ export class ParticlesDirective {
     return particlesParrent.children[0];
   }
 
-  private observe(element: any) {
-    var observer = new IntersectionObserver(this.setInteraction.bind(this));
-    observer.observe(element);
-  }
-
   private setInteraction(enteries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    var particles = this.getParticlesObj(enteries[0].target);
     if (enteries[0].isIntersecting) {
-      if (particles.particles.array.length == 0)
-        particles.fn.particlesCreate();
+      this.particles.fn.particlesCreate();
     }
     else {
-      particles.fn.particlesEmpty();
+      this.particles.fn.particlesEmpty();
     }
   }
 
