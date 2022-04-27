@@ -4,8 +4,6 @@ import { ParticlesObj } from '../../models/ParticlesObj';
 import { IntersectionService } from '../../services/intersection/intersection.service';
 import { ParticlesService } from '../../services/particles/particles.service';
 
-declare let particlesJS: any;
-
 @Directive({
   selector: '[appParticles]'
 })
@@ -16,6 +14,7 @@ export class ParticlesDirective {
   constructor(private elementRef: ElementRef, private particlesService: ParticlesService, private intersectionService: IntersectionService) {
     this.particles = this.particlesService.insertParticles(elementRef.nativeElement, ParticlesConfig);
     this.particles.fn.particlesEmpty();
+
     this.observer = this.intersectionService.registerObserver(this.observerCallback.bind(this));
     this.observer.observe(this.particles.canvas.el);
   }
