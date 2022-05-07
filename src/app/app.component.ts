@@ -1,3 +1,4 @@
+import { AfterContentChecked, AfterViewInit } from '@angular/core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import * as AOS from 'aos';
@@ -8,13 +9,18 @@ import { IntersectionService } from './services/intersection/intersection.servic
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private title: string = 'Full-Stack Developer - Synenko Vladyslav';
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+  title: string = 'Full-Stack Developer - Synenko Vladyslav';
 
-  public constructor(private titleService: Title, private intersectionService: IntersectionService) { }
+  public constructor(private titleService: Title, private intersectionService: IntersectionService) {
+    
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
+  }
+
+  ngAfterViewInit(): void {
     AOS.init();
   }
 

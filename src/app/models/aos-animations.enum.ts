@@ -1,0 +1,25 @@
+export enum AOSAnimations {
+  fadeUp = "fade-up",
+  fadeDown = "fade-down",
+  fadeRight = "fade-right",
+  fadeLeft = "fade-left",
+  fadeUpRight = "fade-up-right",
+  fadeUpLeft = "fade-up-left",
+  fadeDownRight = "fade-down-left",
+  fadeDownLeft = "fade-down-left",
+
+  flipUp = "flip-up",
+  flipDown = "flip-down",
+  flipRight = "flip-right",
+  flipLeft = "flip-left",
+
+  zoomIn = "zoom-in",
+  zoomInUp = "zoom-in-up",
+  zoomInDown = "zoom-in-down",
+  zoomInRigth = "zoom-in-right",
+  zoomInLeft = "zoom-in-left",
+  zoomOutUp = "zoom-out-up",
+  zoomOutDown = "zoom-out-down",
+  zoomOutRight = "zoom-out-right",
+  zoomOutLeft = "zoom-out-left",
+}

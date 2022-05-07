@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ParticlesObj } from '../../models/ParticlesObj';
+import { ParticlesObj } from '../../models/particles-obj';
 declare let particlesJS: any;
 
 @Injectable({
@@ -10,14 +10,14 @@ export class ParticlesService {
 
   constructor() { }
 
-  insertParticles(element: Element, config: any): ParticlesObj {
-    if (element.id.length == 0)
-      element.id = "particles-js-container-" + this.pJSDom.length;
+  insertParticles(container: Element, config: any): ParticlesObj {
+    if (container.id.length == 0)
+      container.id = "particles-js-container-" + this.pJSDom.length;
 
-    particlesJS(element.id, config);
+    particlesJS(container.id, config);
 
-    var container = element.children[0];
-    var particlesObj = this.pJSDom.find((e: any) => e.pJS.canvas.el == container).pJS as ParticlesObj;
+    var element = container.children[0];
+    var particlesObj = this.pJSDom.find((e: any) => e.pJS.canvas.el == element).pJS as ParticlesObj;
     return particlesObj;
   }
 }

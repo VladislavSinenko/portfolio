@@ -12,6 +12,7 @@ import { CopyrightComponent } from './components/copyright/copyright.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ParallaxDirective } from './directives/paralax/parallax.directive';
 import { ParticlesDirective } from './directives/particles/particles.directive';
+import { ExperienceCardComponent } from './components/experience-card/experience-card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ParticlesDirective } from './directives/particles/particles.directive';
     CopyrightComponent,
     ExperienceComponent,
     ParallaxDirective,
-    ParticlesDirective
+    ParticlesDirective,
+    ExperienceCardComponent
   ],
   imports: [
     BrowserModule

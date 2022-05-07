@@ -4,10 +4,9 @@ import { Directive, Input, ElementRef, HostListener } from '@angular/core';
   selector: '[appParallax]'
 })
 export class ParallaxDirective {
-  [index: number]: string;
-
   @Input('ratio') parallaxRatio: number = 1;
   private elementStyleRef: any;
+  [index: number]: string;
 
   constructor(private eleRef: ElementRef) {
     this.elementStyleRef = this.eleRef.nativeElement.style;
@@ -16,6 +15,7 @@ export class ParallaxDirective {
 
   @HostListener("window:scroll")
   onWindowScroll() {
-    this.elementStyleRef.transform = "translateY(" + (~~window.scrollY * this.parallaxRatio) + "px)";
+    let scrollY = ~~window.scrollY;
+    this.elementStyleRef.transform = this[scrollY] ?? (this[scrollY] = "translateY(" + (scrollY * this.parallaxRatio) + "px)");
   }
 }
