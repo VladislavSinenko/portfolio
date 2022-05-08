@@ -20,6 +20,6 @@ export class ExperienceCardComponent implements OnInit {
   }
 
   get Logo(): string {
-    return "../../../assets/img/companies/" + this.experience.CompanyLogo;
+    return "assets/img/companies/" + this.experience.CompanyLogo;
   }
 }
