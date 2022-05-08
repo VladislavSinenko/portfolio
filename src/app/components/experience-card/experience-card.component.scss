@@ -1,4 +1,6 @@
 :host ::ng-deep {
+  width: 100%;
+
   @media (min-width: 992px) {
     div.container[data-position="Left"] {
       flex-direction: row-reverse;

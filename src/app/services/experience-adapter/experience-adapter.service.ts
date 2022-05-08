@@ -20,7 +20,7 @@ export class ExperienceAdapterService {
     model.Current = experienceData.current;
     model.Description = experienceData.description;
     model.EmpType = experienceData.empType;
-    model.EndDate = new Date(experienceData.endDate);
+    model.EndDate = experienceData.endDate ? new Date(experienceData.endDate) : null;
     model.Href = experienceData.href;
     model.Position = experienceData.position;
     model.StartDate = new Date(experienceData.startDate);
@@ -28,11 +28,17 @@ export class ExperienceAdapterService {
   }
 
   private bindDescription(experienceData: any, model: ExperienceModel): ExperienceModel {
-    model.Description = experienceData.description?.text?.join("<br/>\n");
-    model.Description += "<ul>\n";
-    let techStack = experienceData.description?.techStack?.map((e: any) => `<li>${e}</li>`);
-    model.Description += techStack?.join("\n");
-    model.Description += "</ul>";
+    if (experienceData.description?.text) {
+      model.Description = experienceData.description.text.join("<br/>\n");
+    }
+    if (experienceData.description?.techStack) {
+      model.Description += "<br/>\n<br/>\n";
+      model.Description += experienceData.description.techStack.title + "<br/>\n<br/>\n";
+      model.Description += "<ul>\n";
+      let techStack = experienceData.description.techStack.stack.map((e: any) => `<li>${e}</li>`);
+      model.Description += techStack?.join("\n");
+      model.Description += "</ul>";
+    }
     return model;
   }
 }

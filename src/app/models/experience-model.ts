@@ -4,7 +4,7 @@ export class ExperienceModel {
   Href: string;
   EmpType: string;
   StartDate: Date;
-  EndDate: Date;
+  EndDate: Date | null;
   Description: string;
   CompanyLogo: string;
   Current: boolean;

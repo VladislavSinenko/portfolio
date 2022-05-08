@@ -24,7 +24,6 @@ export class ExperienceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
   }
 
   getCardModel(): ExperienceCardModel {

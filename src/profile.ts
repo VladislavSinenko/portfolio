@@ -11,11 +11,14 @@ export const profileInfo = {
       "company": "Rozetka.ua",
       "href": "https://rozetka.com.ua/",
       "empType": "Full time",
-      "startDate": "01-10-2022",
+      "startDate": "10/01/2020",
       "endDate": null,
       "description": {
-        "text": [ "Working on the project \"Document Flow\" based on \"Creatio\" platform." ],
-        "techStack": [ "C#", "JavaScript", ".NET", "ADO.NET", "WCF", "ExtJS", "Git", "Selenium", "SpecFlow" ]
+        "text": ["Working on the project \"Document Flow\" based on \"Creatio\" platform."],
+        "techStack": {
+          "title": "Technology stack:",
+          "stack": ["C#", "JavaScript", ".NET", "ADO.NET", "WCF", "ExtJS", "Git", "Selenium", "SpecFlow"]
+        }
       },
       "companyLogo": "rozetka.jfif",
       "current": true
@@ -25,15 +28,18 @@ export const profileInfo = {
       "company": "IT4Medicine",
       "href": "https://it4medicine.com.ua",
       "empType": "Full time",
-      "startDate": "01-09-2019",
-      "endDate": "01-09-2020",
+      "startDate": "09/01/2019",
+      "endDate": "09/28/2020",
       "description": {
         "text": [
           "Participated in development of:",
           "<a href=\"https://pb4.com.ua/\">https://pb4.com.ua</a>",
           "<a href=\"https://liklik.com.ua/\">https://liklik.com.ua</a>"
         ],
-        "techStack": [ "C#", "Web API", "PostgreSQL", "Angluar", "TypeScript", "HTML/CSS", "Git" ]
+        "techStack": {
+          "title": "Technology stack:",
+          "stack": ["C#", "Web API", "PostgreSQL", "Angluar", "TypeScript", "HTML/CSS", "Git"]
+        }
       },
       "companyLogo": "it4m.jfif",
       "current": false
@@ -43,8 +49,8 @@ export const profileInfo = {
       "company": "Cyberbionic Systematics",
       "href": "https://edu.cbsystematics.com",
       "empType": "Part time",
-      "startDate": "01-07-2019",
-      "endDate": "01-09-2019",
+      "startDate": "07/01/2019",
+      "endDate": "09/28/2019",
       "description": {
         "text": [
           "Participated in development of:",
@@ -58,7 +64,10 @@ export const profileInfo = {
           "Develop new functionalities on existing software products.",
           "Design and implementation new features, bug fixing."
         ],
-        "techStack": [ "C#", "ASP.NET MVC", "Entity Framework", "T-SQL", "JavaScript" ]
+        "techStack": {
+          "title": "Technology stack:",
+          "stack": ["C#", "ASP.NET MVC", "Entity Framework", "T-SQL", "JavaScript"]
+        }
       },
       "companyLogo": "cyberbionic.jfif",
       "current": false
@@ -68,14 +77,17 @@ export const profileInfo = {
       "company": "Cyberbionic Systematics",
       "href": "https://edu.cbsystematics.com",
       "empType": "Part time",
-      "startDate": "01-09-2018",
-      "endDate": "01-07-2019",
+      "startDate": "09/01/2018",
+      "endDate": "07/28/2019",
       "description": {
         "text": [
           "Responsibilities:",
           "Conducting live and online lessons by C#, T-SQL languages and .NET frameworks."
         ],
-        "techStack": [ "C#", "ASP.NET MVC", "Entity Framework", "T-SQL" ]
+        "techStack": {
+          "title": "Themes:",
+          "stack": ["C#", "ASP.NET MVC", "Entity Framework", "T-SQL"]
+        }
       },
       "companyLogo": "cyberbionic.jfif",
       "current": false
@@ -85,8 +97,8 @@ export const profileInfo = {
       "company": "Cyberbionic Systematics",
       "href": "https://edu.cbsystematics.com",
       "empType": "Part time",
-      "startDate": "01-05-2018",
-      "endDate": "01-10-2018",
+      "startDate": "05/01/2018",
+      "endDate": "10/28/2018",
       "description": {
         "text": [
           "Responsibilities:",
@@ -105,8 +117,8 @@ export const profileInfo = {
       "company": "ITVDN",
       "href": "https://itvdn.com",
       "empType": "Full time",
-      "startDate": "01-04-2017",
-      "endDate": "01-05-2018",
+      "startDate": "04/01/2017",
+      "endDate": "05/28/2018",
       "description": {
         "text": [
           "Responsibilities:",
