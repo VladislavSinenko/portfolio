@@ -2,7 +2,7 @@
   <div class="content" [attr.data-aos]="model.CardAnimation" data-aos-delay="250" data-aos-duration="250">
     <div class="header-container" [attr.data-aos]="model.HeaderAnimation" data-aos-delay="500">
       <h2 class="heading">{{ experience.Position }} {{ at }} <a [href]="experience.Href">{{ experience.Company }}</a></h2>
-      <h2 class="subheading">{{ experience.StartDate | date : 'MMM, YYYY' }} - {{ EndDateStatement ?? (experience.EndDate | date : 'MMM, YYYY') }} · {{ Duration }}</h2>
+      <h2 class="subheading">{{ experience.StartDate | date : 'MMM, YYYY' }} - {{ NullEndDateValue ?? (experience.EndDate | date : 'MMM, YYYY') }} · {{ Duration }}</h2>
     </div>
     <div class="main-content" [attr.data-aos]="model.ContentAnimation" [innerHtml]="experience.Description" data-aos-delay="500">
     </div>

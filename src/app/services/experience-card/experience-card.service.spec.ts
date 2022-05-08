@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ExperienceCardModelService } from './experience-card-model.service';
+import { ExperienceCardService } from './experience-card.service';
 
 describe('ExperienceCardModelFactoryService', () => {
-  let service: ExperienceCardModelService;
+  let service: ExperienceCardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ExperienceCardModelService);
+    service = TestBed.inject(ExperienceCardService);
   });
 
   it('should be created', () => {

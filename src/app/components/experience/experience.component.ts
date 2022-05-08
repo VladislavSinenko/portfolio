@@ -4,7 +4,7 @@ import { ExperienceCardModel } from '../../models/experience-card-model';
 import { ExperienceModel } from '../../models/experience-model';
 import { DataService } from '../../services/data/data.service';
 import { ExperienceAdapterService } from '../../services/experience-adapter/experience-adapter.service';
-import { ExperienceCardModelService } from '../../services/experience-card-model/experience-card-model.service';
+import { ExperienceCardService } from '../../services/experience-card/experience-card.service';
 
 @Component({
   selector: 'app-experience',
@@ -17,7 +17,7 @@ export class ExperienceComponent implements OnInit {
   experience: ExperienceModel[];
 
   constructor(
-    private cardModelService: ExperienceCardModelService,
+    private cardService: ExperienceCardService,
     private dataService: DataService,
     private experienceAdapter: ExperienceAdapterService) {
     this.experience = this.getExperience();
@@ -27,7 +27,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   getCardModel(): ExperienceCardModel {
-    return this.cardModelService.getCardModel(this.index++);
+    return this.cardService.getCardModel(this.index++);
   }
 
   getExperience(): ExperienceModel[] {
