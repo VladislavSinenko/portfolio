@@ -13,6 +13,6 @@ export class ParallaxDirective {
   }
 
   onWindowScroll() {
-    this.elementStyleRef.backgroundPositionY = ~~(window.scrollY * this.parallaxRatio) + "px";
+    this.elementStyleRef.transform = "translateY(" + ~~(window.scrollY * this.parallaxRatio) + "px)";
   }
 }
