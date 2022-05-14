@@ -13,6 +13,6 @@ export class ParallaxDirective {
 
   @HostListener("window:scroll")
   onWindowScroll() {
-    this.elementStyleRef.transform = `translateY(${~~(window.scrollY * this.parallaxRatio)}px)`;
+    this.elementStyleRef.backgroundPositionY = `${~~(window.scrollY * this.parallaxRatio)}px`;
   }
 }
