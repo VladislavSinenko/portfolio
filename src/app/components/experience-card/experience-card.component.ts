@@ -29,10 +29,8 @@ export class ExperienceCardComponent implements OnInit {
   }
 
   initEndDate() {
-    if (!this.experience.EndDate) {
+    if (!this.experience.EndDate)
       this.NullEndDateValue = "Present";
-      this.experience.EndDate = new Date(Date.now());
-    }
   }
 
   initDuration() {

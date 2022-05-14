@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AOSAnimations } from '../../models/aos-animations.enum';
 import { ExperienceCardModel } from '../../models/experience-card-model';
 import { ExperienceModel } from '../../models/experience-model';
 import { DataService } from '../../services/data/data.service';

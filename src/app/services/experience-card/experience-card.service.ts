@@ -9,7 +9,7 @@ import { ExperienceCardModelPosition } from '../../models/experience-card-model-
 })
 export class ExperienceCardService {
   getDuration(startDate: Date, endDate: Date | null): string {
-    let momentEndDate = moment(endDate);
+    let momentEndDate = moment(endDate ?? new Date(Date.now()));
     let momentStartDate = moment(startDate);
     let momentDuration = moment.duration(momentEndDate.diff(momentStartDate));
     let monthes = momentDuration.asMonths();
@@ -20,7 +20,7 @@ export class ExperienceCardService {
     if (years >= 1)
       duration += `${Math.floor(years)} yr `;
 
-    duration += `${Math.ceil(monthes)} mos`
+    duration += `${Math.ceil(monthes)} mos`;
 
     return duration;
   }

@@ -1,6 +1,6 @@
 export const profileInfo = {
   "mainInfo": {
-    "name": "Sinenko Vladislav",
+    "name": "Synenko Vladyslav",
     "profession": "Full Stack Developer",
     "mainProgrammingLanguage": "C#",
     "secondaryProgrammingLanguage": "JavaScript"
