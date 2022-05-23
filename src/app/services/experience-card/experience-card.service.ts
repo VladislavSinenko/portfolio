@@ -32,11 +32,23 @@ export class ExperienceCardService {
       return this.getRightCardModel();
   }
 
+  private getDefCardModel(): ExperienceCardModel {
+    return new ExperienceCardModel();
+  }
+
   private getLeftCardModel(): ExperienceCardModel {
-    return { CardAnimation: AOSAnimations.fadeLeft, LogoAnimation: AOSAnimations.flipRight, Position: ExperienceCardModelPosition.Right } as ExperienceCardModel;
+    var model = this.getDefCardModel();
+    model.CardAnimation = AOSAnimations.fadeLeft;
+    model.LogoAnimation = AOSAnimations.flipRight;
+    model.Position = ExperienceCardModelPosition.Right;
+    return model;
   }
 
   private getRightCardModel(): ExperienceCardModel {
-    return { CardAnimation: AOSAnimations.fadeRight, LogoAnimation: AOSAnimations.flipLeft, Position: ExperienceCardModelPosition.Left } as ExperienceCardModel;
+    var model = this.getDefCardModel();
+    model.CardAnimation = AOSAnimations.fadeRight;
+    model.LogoAnimation = AOSAnimations.flipLeft;
+    model.Position = ExperienceCardModelPosition.Left;
+    return model;
   }
 }
