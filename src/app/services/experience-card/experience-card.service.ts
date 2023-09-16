@@ -13,14 +13,18 @@ export class ExperienceCardService {
     let momentStartDate = moment(startDate);
     let momentDuration = moment.duration(momentEndDate.diff(momentStartDate));
     let monthes = momentDuration.asMonths();
-    let years = monthes / 12;
-    monthes %= 12;
+    let years = Math.floor(monthes / 12);
+    monthes = Math.ceil(monthes % 12);
+    if (monthes == 12) {
+      monthes = 0;
+      years++;
+    }
     let duration = "";
 
     if (years >= 1)
-      duration += `${Math.floor(years)} yr `;
+      duration += `${years} yr `;
 
-    duration += `${Math.ceil(monthes)} mos`;
+    duration += `${monthes} mos`;
 
     return duration;
   }
